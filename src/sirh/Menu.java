@@ -763,10 +763,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuMovsAspiraActionPerformed
 
     private void mnuConsTrabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuConsTrabaActionPerformed
-        cTrabaConsola object=new cTrabaConsola();
-        object.setSize(1100,750);
-        object.setResizable(false);
-        object.setVisible(true);
+        try {
+            cTrabaConsola object=new cTrabaConsola();
+            object.setSize(1100,750);
+            object.setResizable(false);
+            object.setVisible(true);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_mnuConsTrabaActionPerformed
 
     private void mnuMovsTrabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovsTrabaActionPerformed
