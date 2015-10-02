@@ -48,13 +48,13 @@ public class AprivConsola extends javax.swing.JFrame {
         horini.setText("");
         fecter.setDate(null);
         horter.setText("");
-        patgen.setText("C:/SIRH/AUSENCIAS/AUSENCIAS.GIF");
+        patgen.setText("FTP://SIRH.DYNDNS.ORG/AUSENCIAS/AUSENCIAS.GIF");
         justif.removeAllItems();
         justif.addItem("");
         Apriv e3=new Apriv();
         e3.LlenarSino(justif);
         caracte.setText("");
-        patjus.setText("C:/SIRH/AUSENCIAS/AUSENCIAS.GIF");
+        patjus.setText("FTP://SIRH.DYNDNS.ORG/AUSENCIAS/AUSENCIAS.GIF");
         reanuda.removeAllItems();
         reanuda.addItem("");
         Apriv e4=new Apriv();

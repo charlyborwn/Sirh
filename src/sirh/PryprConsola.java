@@ -61,7 +61,7 @@ public class PryprConsola extends javax.swing.JFrame {
         pariente.addItem("");
         Prypr e4=new Prypr();
         e4.LlenarPariente(pariente);
-        path.setText("C:/SIRH/PREMIOS/PREMIOS.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/PREMIOS/PREMIOS.GIF");
         status.setText("");
         crear.setEnabled(true);
         tipo.setEnabled(true);

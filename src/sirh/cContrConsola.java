@@ -2,6 +2,9 @@
 package sirh;
 
 import java.awt.Image;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -24,44 +27,48 @@ public class cContrConsola extends javax.swing.JFrame {
     }
     
     private void Iniciar(){
-        Limpiar(tablatraba);
-        Limpiar(tablacontr);
-        busnum.setText("");
-        bustraba.setText("");
-        buscontra.setText("");
-
-        String lugarImagen="C:/SIRH/TRABAJADORES/SINFOTO.GIF";
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        txtImagen.setIcon(imagen);
-        
-        numcon.setText("");
-        stacon.setText("");
-        fecsta.setText("");
-        cveemp.setText("");
-        nomemp.setText("");
-        cvedep.setText("");
-        nomdep.setText("");
-        cvesec.setText("");
-        nomsec.setText("");
-        cvecat.setText("");
-        nomcat.setText("");
-        suecat.setText("");
-        cvetur.setText("");
-        nomtur.setText("");
-        cvetip.setText("");
-        nomtip.setText("");
-        finicio.setText("");
-        ftermino.setText("");
-        cvesup.setText("");
-        nomsup.setText("");
-        path.setText("");
-        observa.setText("");
-       
-        fecha.setText("");
-        usuario.setText("");
-        txtNombre.setText(Acceso.getNombreUsuario());
-        txtEmpresa.setText(Acceso.getEmpresaUsuario());
+        try {
+            Limpiar(tablatraba);
+            Limpiar(tablacontr);
+            busnum.setText("");
+            bustraba.setText("");
+            buscontra.setText("");
+            
+            String lugarImagen="FTP://SIRH.DYNDNS.ORG/TRABAJADORES/SINFOTO.GIF";
+            Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            txtImagen.setIcon(imagen);
+            
+            numcon.setText("");
+            stacon.setText("");
+            fecsta.setText("");
+            cveemp.setText("");
+            nomemp.setText("");
+            cvedep.setText("");
+            nomdep.setText("");
+            cvesec.setText("");
+            nomsec.setText("");
+            cvecat.setText("");
+            nomcat.setText("");
+            suecat.setText("");
+            cvetur.setText("");
+            nomtur.setText("");
+            cvetip.setText("");
+            nomtip.setText("");
+            finicio.setText("");
+            ftermino.setText("");
+            cvesup.setText("");
+            nomsup.setText("");
+            path.setText("");
+            observa.setText("");
+            
+            fecha.setText("");
+            usuario.setText("");
+            txtNombre.setText(Acceso.getNombreUsuario());
+            txtEmpresa.setText(Acceso.getEmpresaUsuario());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -735,22 +742,26 @@ public class cContrConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_buscontraMouseClicked
 
     private void tablatrabaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablatrabaMouseClicked
-        DefaultTableModel modelo= (DefaultTableModel) tablatraba.getModel();
-        int NumTra = Integer.parseInt(modelo.getValueAt(tablatraba.getSelectedRow(), 0)+"");
-        String NomTra = modelo.getValueAt(tablatraba.getSelectedRow(), 1)+"";
-        cContr.setNumTrabaja(NumTra);
-        cContr.setNomTrabaja(NomTra);
-        String lugarImagen = modelo.getValueAt(tablatraba.getSelectedRow(), 5)+"";
-        
-
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        txtImagen.setIcon(imagen);
-        
-        cContr e=new cContr();
-        Limpiar(tablacontr);
-        DefaultTableModel modelo1= (DefaultTableModel) tablacontr.getModel();
-        e.LlenarDatos(modelo1, NumTra);
+        try {
+            DefaultTableModel modelo= (DefaultTableModel) tablatraba.getModel();
+            int NumTra = Integer.parseInt(modelo.getValueAt(tablatraba.getSelectedRow(), 0)+"");
+            String NomTra = modelo.getValueAt(tablatraba.getSelectedRow(), 1)+"";
+            cContr.setNumTrabaja(NumTra);
+            cContr.setNomTrabaja(NomTra);
+            String lugarImagen = modelo.getValueAt(tablatraba.getSelectedRow(), 5)+"";
+            
+            
+            Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            txtImagen.setIcon(imagen);
+            
+            cContr e=new cContr();
+            Limpiar(tablacontr);
+            DefaultTableModel modelo1= (DefaultTableModel) tablacontr.getModel();
+            e.LlenarDatos(modelo1, NumTra);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tablatrabaMouseClicked
 
     private void tablacontrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablacontrMouseClicked

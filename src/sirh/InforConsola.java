@@ -40,7 +40,7 @@ public class InforConsola extends javax.swing.JFrame {
         e3.LlenarCveemp(cveemp);
         nomemp.setText("");
         resumen.setText("");
-        path.setText("C:/SIRH/INFORMACION/INFORMACION.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/INFORMACION/INFORMACION.GIF");
         
         fecha.setText(fechaActual());
         usuario.setText(Acceso.getClaveUsuario());

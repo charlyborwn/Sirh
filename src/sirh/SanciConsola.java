@@ -53,7 +53,7 @@ public class SanciConsola extends javax.swing.JFrame {
         Sanci e2=new Sanci();
         e2.LlenarComite(autoriza);
         nomaut.setText("");
-        path.setText("C:/SIRH/SANCIONES/SANCIONES.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/SANCIONES/SANCIONES.GIF");
         status.setText("");
         crear.setEnabled(true);
         causa.setEnabled(true);

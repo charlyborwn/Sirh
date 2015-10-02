@@ -76,7 +76,7 @@ public class FamilConsola extends javax.swing.JFrame {
         tidoc.addItem("");
         Famil e5=new Famil();
         e5.LlenarTidoc(tidoc);
-        path.setText("C:/SIRH/FAMILIA/FAMILIA.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/FAMILIA/FAMILIA.GIF");
         observa.setText("");
         status.setText("");
         crear.setEnabled(true);

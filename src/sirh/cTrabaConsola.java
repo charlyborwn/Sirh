@@ -2,6 +2,10 @@
 package sirh;
 
 import java.awt.Image;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -11,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 public class cTrabaConsola extends javax.swing.JFrame {
 
 
-    public cTrabaConsola() {
+    public cTrabaConsola() throws MalformedURLException {
         initComponents();
         //setDefaultCloseOperation(0);
         Iniciar();
@@ -23,7 +27,7 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
     }
     
-    private void Iniciar(){
+    private void Iniciar() throws MalformedURLException{
         Limpiar(tablatraba);
         busnum.setText("");
         buspat.setText("");
@@ -38,9 +42,9 @@ public class cTrabaConsola extends javax.swing.JFrame {
         materno.setText("");
         nombre.setText("");
         path.setText("");
-        String lugarImagen="C:/SIRH/TRABAJADORES/SINFOTO.GIF";
+        String lugarImagen="FTP://SIRH.DYNDNS.ORG/TRABAJADORES/SINFOTO.GIF";
         lugarImagen=path.getText();
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+        Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
         Icon imagen=new ImageIcon(icon);
         txtImagen.setIcon(imagen);
         fnacim.setText("");
@@ -639,7 +643,11 @@ public class cTrabaConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_busnumKeyPressed
 
     private void busnumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busnumMouseClicked
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_busnumMouseClicked
 
     private void buspatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buspatKeyPressed
@@ -650,7 +658,11 @@ public class cTrabaConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_buspatKeyPressed
 
     private void buspatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buspatMouseClicked
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_buspatMouseClicked
 
     private void busmatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busmatKeyPressed
@@ -661,7 +673,11 @@ public class cTrabaConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_busmatKeyPressed
 
     private void busmatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busmatMouseClicked
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_busmatMouseClicked
 
     private void busnomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_busnomKeyPressed
@@ -672,7 +688,11 @@ public class cTrabaConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_busnomKeyPressed
 
     private void busnomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_busnomMouseClicked
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_busnomMouseClicked
 
     private void datperActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datperActionPerformed
@@ -692,6 +712,8 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_datperActionPerformed
 
@@ -712,6 +734,8 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_documentaActionPerformed
 
@@ -732,6 +756,8 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_escolarActionPerformed
 
@@ -752,6 +778,8 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_familActionPerformed
 
@@ -772,6 +800,8 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_experActionPerformed
 
@@ -792,52 +822,58 @@ public class cTrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_benefiActionPerformed
 
     private void tablatrabaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablatrabaMouseClicked
-        DefaultTableModel modelo= (DefaultTableModel) tablatraba.getModel();
-        numtra.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 0)+"");
-        paterno.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 1)+"");
-        materno.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 2)+"");
-        nombre.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 3)+"");
-        
-        int NuTr=Integer.parseInt(numtra.getText().toUpperCase());
-        String PaAc = paterno.getText();
-        String MaAc = materno.getText();
-        String NoAc = nombre.getText();
-        
-        cTraba com=new cTraba();
-        Object[] datos1=com.Comple(NuTr, PaAc, MaAc, NoAc);
-        //numtra.setText(datos1[0]+"");
-        rfc.setText(datos1[1]+"");
-        curp.setText(datos1[2]+"");
-        statra.setText(datos1[3]+"");
-        fstatra.setText(datos1[4]+"");
-        //paterno.setText(datos1[5]+"");
-        //materno.setText(datos1[6]+"");
-        //nombre.setText(datos1[7]+"");
-        path.setText(datos1[8]+"");
-        fnacim.setText(datos1[9]+"");
-        sexo.setText(datos1[10]+"");
-        nacion.setText(datos1[11]+"");
-        fing.setText(datos1[12]+"");
-        fpla.setText(datos1[13]+"");
-        fcam.setText(datos1[14]+"");
-        frei.setText(datos1[15]+"");
-        observa.setText(datos1[16]+"");
-        status.setText(datos1[17]+"");
-        fecha.setText(datos1[18]+"");
-        usuario.setText(datos1[19]+"");
-        
-        String lugarImagen="";
-        lugarImagen=path.getText();
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        txtImagen.setIcon(imagen);
-        
-        cTraba.setNumTrabaja(NuTr);
-        cTraba.setNomTrabaja(nombre.getText()+" "+paterno.getText()+" "+materno.getText());
+        try {
+            DefaultTableModel modelo= (DefaultTableModel) tablatraba.getModel();
+            numtra.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 0)+"");
+            paterno.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 1)+"");
+            materno.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 2)+"");
+            nombre.setText(modelo.getValueAt(tablatraba.getSelectedRow(), 3)+"");
+            
+            int NuTr=Integer.parseInt(numtra.getText().toUpperCase());
+            String PaAc = paterno.getText();
+            String MaAc = materno.getText();
+            String NoAc = nombre.getText();
+            
+            cTraba com=new cTraba();
+            Object[] datos1=com.Comple(NuTr, PaAc, MaAc, NoAc);
+            //numtra.setText(datos1[0]+"");
+            rfc.setText(datos1[1]+"");
+            curp.setText(datos1[2]+"");
+            statra.setText(datos1[3]+"");
+            fstatra.setText(datos1[4]+"");
+            //paterno.setText(datos1[5]+"");
+            //materno.setText(datos1[6]+"");
+            //nombre.setText(datos1[7]+"");
+            path.setText(datos1[8]+"");
+            fnacim.setText(datos1[9]+"");
+            sexo.setText(datos1[10]+"");
+            nacion.setText(datos1[11]+"");
+            fing.setText(datos1[12]+"");
+            fpla.setText(datos1[13]+"");
+            fcam.setText(datos1[14]+"");
+            frei.setText(datos1[15]+"");
+            observa.setText(datos1[16]+"");
+            status.setText(datos1[17]+"");
+            fecha.setText(datos1[18]+"");
+            usuario.setText(datos1[19]+"");
+            
+            String lugarImagen="";
+            lugarImagen=path.getText();
+            Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            txtImagen.setIcon(imagen);
+            
+            cTraba.setNumTrabaja(NuTr);
+            cTraba.setNomTrabaja(nombre.getText()+" "+paterno.getText()+" "+materno.getText());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tablatrabaMouseClicked
 
     /**
@@ -870,7 +906,11 @@ public class cTrabaConsola extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cTrabaConsola().setVisible(true);
+                try {
+                    new cTrabaConsola().setVisible(true);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(cTrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

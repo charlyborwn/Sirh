@@ -4,6 +4,9 @@ package sirh;
 import java.awt.Image;
 import java.text.*;
 import java.util.*;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -11,14 +14,14 @@ import javax.swing.JOptionPane;
 public class TrabaConsola extends javax.swing.JFrame {
 
 
-    public TrabaConsola() {
+    public TrabaConsola() throws MalformedURLException {
         initComponents();
         setResizable(false);
         setDefaultCloseOperation(0);
         Iniciar();
     }
 
-    private void Iniciar(){
+    private void Iniciar() throws MalformedURLException{
         numtra.setText("0");
         rfc.setText("");
         curp.setText("");
@@ -26,7 +29,7 @@ public class TrabaConsola extends javax.swing.JFrame {
         paterno.setText("");
         materno.setText("");
         nombre.setText("");
-        path.setText("C:/SIRH/TRABAJADORES/SINFOTO.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/TRABAJADORES/SINFOTO.GIF");
         nacim.setDate(null);
         fing.setDate(null);
         fpla.setDate(null);
@@ -35,7 +38,7 @@ public class TrabaConsola extends javax.swing.JFrame {
         observa.setText("");
         String lugarImagen="";
         lugarImagen=path.getText();
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+        Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
         Icon imagen=new ImageIcon(icon);
         txtImagen.setIcon(imagen);
         statra.removeAllItems();
@@ -650,6 +653,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_crearActionPerformed
 
@@ -660,7 +665,11 @@ public class TrabaConsola extends javax.swing.JFrame {
         System.out.println("Si hay número: "+dnumtra);
         if(dnumtra == 0){
             JOptionPane.showMessageDialog(this, "Se requiere un número de trabajador, verifique .....");
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             String dstatra=statra.getSelectedItem().toString();
@@ -735,7 +744,11 @@ public class TrabaConsola extends javax.swing.JFrame {
                                         e.Actualizar(dnumtra, drfc, dcurp, dstatra, dfsta, dpaterno, dmaterno, dnombre, dpath, dnacim,
                                                      dsexo, dnacion, dfing, dfpla, dfult, dfrei, dobserva, Acceso.getClaveUsuario());
                                         JOptionPane.showMessageDialog(this, "Registro actualizado .....");
-                                        Iniciar(); 
+                                        try { 
+                                            Iniciar();
+                                        } catch (MalformedURLException ex) {
+                                            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
                                     }
                                 }
                             }
@@ -773,15 +786,27 @@ public class TrabaConsola extends javax.swing.JFrame {
             Traba e11=new Traba();
             e11.Eliminar11(dnumtra, Acceso.getClaveUsuario());
             JOptionPane.showMessageDialog(this, "Trabajador eliminado .....");
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else if(ax == JOptionPane.NO_OPTION){
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -789,11 +814,17 @@ public class TrabaConsola extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void pathFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_pathFocusLost
-        String lugarImagen="";
-        lugarImagen=path.getText();
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        txtImagen.setIcon(imagen);
+        try {
+            String lugarImagen="";
+            lugarImagen=path.getText();
+            Image icon;
+            
+            icon = new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            txtImagen.setIcon(imagen);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_pathFocusLost
 
     private void numtraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_numtraFocusLost
@@ -886,7 +917,7 @@ public class TrabaConsola extends javax.swing.JFrame {
                     usuario.setText(datos[18]+"");
                     String lugarImagen="";
                     lugarImagen=path.getText();
-                    Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+                    Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
                     Icon imagen=new ImageIcon(icon);
                     txtImagen.setIcon(imagen);
                     crear.setEnabled(false);
@@ -897,6 +928,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_numtraFocusLost
 
@@ -917,6 +950,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_datperActionPerformed
 
@@ -937,6 +972,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_documentaActionPerformed
 
@@ -957,6 +994,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_escolarActionPerformed
 
@@ -977,6 +1016,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_familiarActionPerformed
 
@@ -997,6 +1038,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_experActionPerformed
 
@@ -1017,6 +1060,8 @@ public class TrabaConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_benefiActionPerformed
 
@@ -1058,7 +1103,11 @@ public class TrabaConsola extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TrabaConsola().setVisible(true);
+                try {
+                    new TrabaConsola().setVisible(true);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(TrabaConsola.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

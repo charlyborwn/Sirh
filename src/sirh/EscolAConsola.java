@@ -53,7 +53,7 @@ public class EscolAConsola extends javax.swing.JFrame {
         espec.addItem("");
         EscolA e3=new EscolA();
         e3.LlenarEspec(espec);
-        path.setText("C:/SIRH/ESCUELAS/ESCUELAS.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/ESCUELAS/ESCUELAS.GIF");
         observa.setText("");
         status.setText("");
         crear.setEnabled(true);

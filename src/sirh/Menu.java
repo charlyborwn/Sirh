@@ -770,10 +770,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuConsTrabaActionPerformed
 
     private void mnuMovsTrabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovsTrabaActionPerformed
-        TrabaConsola object=new TrabaConsola();
-        object.setSize(750,650);
-        object.setResizable(false);
-        object.setVisible(true);
+        try {
+            TrabaConsola object=new TrabaConsola();
+            object.setSize(750,650);
+            object.setResizable(false);
+            object.setVisible(true);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_mnuMovsTrabaActionPerformed
 
     private void mnuConsContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuConsContrActionPerformed
@@ -784,10 +788,14 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuConsContrActionPerformed
 
     private void mnuMovsContrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMovsContrActionPerformed
-        ContrConsola object=new ContrConsola();
-        object.setSize(1100,750);
-        object.setResizable(false);
-        object.setVisible(true);
+        try {
+            ContrConsola object=new ContrConsola();
+            object.setSize(1100,750);
+            object.setResizable(false);
+            object.setVisible(true);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_mnuMovsContrActionPerformed
 
     private void mnuAspirTrabaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuAspirTrabaActionPerformed

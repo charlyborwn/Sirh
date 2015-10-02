@@ -36,7 +36,7 @@ public class RutasConsola extends javax.swing.JFrame {
         nomemp.setText("");
         lugori.setText("");
         lugdes.setText("");
-        path.setText("C:/SIRH/CROQUIS/CROQUIS.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/CROQUIS/CROQUIS.GIF");
         observa.setText("");
         Limpiar(tablarutas1);
         busnum.setText("");

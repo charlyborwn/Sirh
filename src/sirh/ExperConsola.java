@@ -62,7 +62,7 @@ public class ExperConsola extends javax.swing.JFrame {
         carjefe.setText("");
         celjefe.setText("");
         corjefe.setText("");
-        path.setText("C:/SIRH/EXPERIENCIA/EXPERIENCIA.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/EXPERIENCIA/EXPERIENCIA.GIF");
         observa.setText("");
         status.setText("");
         crear.setEnabled(true);

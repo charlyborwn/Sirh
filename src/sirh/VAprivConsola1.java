@@ -4,21 +4,28 @@ package sirh;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class VAprivConsola1 extends javax.swing.JFrame {
 
 
     public VAprivConsola1() {
-        initComponents();
-        setResizable(false);
-        setDefaultCloseOperation(0);
-        Iniciar();
+        try {
+            initComponents();
+            setResizable(false);
+            setDefaultCloseOperation(0);
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(VAprivConsola1.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    private void Iniciar(){
+    private void Iniciar() throws MalformedURLException{
         txtPath.setText(Apriv.getPath1Usuario());
-        Image icon=new ImageIcon(Apriv.getPath1Usuario()).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
+        Image icon=new javax.swing.ImageIcon(new URL(Apriv.getPath1Usuario())).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
         Icon imagen=new ImageIcon(icon);
         imgPath.setIcon(imagen);
     }

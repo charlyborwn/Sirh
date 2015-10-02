@@ -49,7 +49,7 @@ public class DocumAConsola extends javax.swing.JFrame {
         e2.LlenarCausa(causa);
         finicio.setDate(null);
         ftermino.setDate(null);
-        path.setText("C:/SIRH/DOCUMENTOS/DOCUMENTOS.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/DOCUMENTOS/DOCUMENTOS.GIF");
         observa.setText("");
         status.setText("");
         crear.setEnabled(true);

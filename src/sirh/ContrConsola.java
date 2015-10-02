@@ -4,6 +4,9 @@ package sirh;
 import java.awt.Image;
 import java.text.*;
 import java.util.*;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -13,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class ContrConsola extends javax.swing.JFrame {
 
 
-    public ContrConsola() {
+    public ContrConsola() throws MalformedURLException {
         initComponents();
         setResizable(false);
         setDefaultCloseOperation(0);
@@ -26,7 +29,7 @@ public class ContrConsola extends javax.swing.JFrame {
         }
     }
 
-    private void Iniciar(){
+    private void Iniciar() throws MalformedURLException{
         Limpiar(tablacontr);
         numtra.setText("0");
         nomtra.setText("");
@@ -36,7 +39,7 @@ public class ContrConsola extends javax.swing.JFrame {
         pattra.setText("");
         String lugarImagen="";
         lugarImagen=pattra.getText();
-        Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+        Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
         Icon imagen=new ImageIcon(icon);
         txtImagen.setIcon(imagen);
         numcon.setText("");
@@ -80,7 +83,7 @@ public class ContrConsola extends javax.swing.JFrame {
         Contr e7=new Contr();
         e7.LlenarSuper(cvesup);
         nomsup.setText("");
-        path.setText("C:/SIRH/CONTRATOS/CONTRATOS.GIF");
+        path.setText("FTP://SIRH.DYNDNS.ORG/CONTRATOS/CONTRATOS.GIF");
         observa.setText("");
         crear.setEnabled(true);
         numcon.setEnabled(true);
@@ -890,6 +893,8 @@ public class ContrConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_crearActionPerformed
 
@@ -899,7 +904,11 @@ public class ContrConsola extends javax.swing.JFrame {
         dnumtra=Integer.parseInt(numtra.getText().toUpperCase());
         if(dnumtra == 0){
             JOptionPane.showMessageDialog(this, "Se requiere un número de trabajador, verifique .....");
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             String dstacon=stacon.getSelectedItem().toString();
@@ -973,7 +982,11 @@ public class ContrConsola extends javax.swing.JFrame {
                                                  dnomemp, dcvedep, dnomdep, dcvesec, dnomsec, dcvecat, dnomcat, dsuecat, dcvetur, dnomtur,
                                                  dcvetip, dnomtip, dfinicio, dftermino, dcvesup, dnomsup, dpath, dobserva, Acceso.getClaveUsuario());
                                     JOptionPane.showMessageDialog(this, "Registro actualizado .....");
-                                    Iniciar();
+                                    try {
+                                        Iniciar();
+                                    } catch (MalformedURLException ex) {
+                                        Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
                                 }
                             }
                         }
@@ -989,11 +1002,19 @@ public class ContrConsola extends javax.swing.JFrame {
         String dnumcon=numcon.getText().toUpperCase();
         e.Eliminar(dnumtra, dnumcon, Acceso.getClaveUsuario());
         JOptionPane.showMessageDialog(this, "Registro eliminado .....");
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
-        Iniciar();
+        try {
+            Iniciar();
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -1005,7 +1026,11 @@ public class ContrConsola extends javax.swing.JFrame {
         String dnumcon=numcon.getText().toUpperCase();
         if(dnumtra.isEmpty() || dnumcon.isEmpty()){
             JOptionPane.showMessageDialog(this, "Falta un número de trabajador y/o un número de contrato, verifique .....");
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             Cargar();
@@ -1020,7 +1045,11 @@ public class ContrConsola extends javax.swing.JFrame {
         String dnumcon=numcon.getText().toUpperCase();
         if(dnumtra.isEmpty() || dnumcon.isEmpty()){
             JOptionPane.showMessageDialog(this, "Falta un número de trabajador y/o un número de contrato, verifique .....");
-            Iniciar();
+            try {
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             Cargar();
@@ -1034,8 +1063,12 @@ public class ContrConsola extends javax.swing.JFrame {
         String dnumtra=numtra.getText().toUpperCase();
         String dnumcon=numcon.getText().toUpperCase();
         if(dnumtra.isEmpty() || dnumcon.isEmpty()){
-            JOptionPane.showMessageDialog(this, "Falta un número de trabajador y/o un número de contrato, verifique .....");
-            Iniciar();
+            try {
+                JOptionPane.showMessageDialog(this, "Falta un número de trabajador y/o un número de contrato, verifique .....");
+                Iniciar();
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         else{
             Cargar();
@@ -1243,7 +1276,7 @@ public class ContrConsola extends javax.swing.JFrame {
                     pattra.setText(datos[5]+"");
                     String lugarImagen="";
                     lugarImagen=pattra.getText();
-                    Image icon=new ImageIcon(lugarImagen).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
+                    Image icon=new javax.swing.ImageIcon(new URL(lugarImagen)).getImage().getScaledInstance(txtImagen.getWidth(), txtImagen.getWidth(), Image.SCALE_DEFAULT);
                     Icon imagen=new ImageIcon(icon);
                     txtImagen.setIcon(imagen);
                 
@@ -1257,6 +1290,8 @@ public class ContrConsola extends javax.swing.JFrame {
         }
         catch(NumberFormatException nfe){
             System.out.println("No hay número: "+nfe);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_numtraFocusLost
 
@@ -1296,7 +1331,11 @@ public class ContrConsola extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ContrConsola().setVisible(true);
+                try {
+                    new ContrConsola().setVisible(true);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(ContrConsola.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
