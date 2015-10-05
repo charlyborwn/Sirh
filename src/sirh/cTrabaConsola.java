@@ -28,6 +28,7 @@ public class cTrabaConsola extends javax.swing.JFrame {
     }
     
     private void Iniciar() throws MalformedURLException{
+        try {
         Limpiar(tablatraba);
         busnum.setText("");
         buspat.setText("");
@@ -60,6 +61,10 @@ public class cTrabaConsola extends javax.swing.JFrame {
         usuario.setText("");
         txtNombre.setText(Acceso.getNombreUsuario());
         txtEmpresa.setText(Acceso.getEmpresaUsuario());
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        
     }
     
     /**
