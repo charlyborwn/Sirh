@@ -2,9 +2,10 @@
 package sirh;
 
 import java.awt.Image;
+import java.net.MalformedURLException;
 import java.text.*;
 import java.util.*;
-import java.net.*;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;

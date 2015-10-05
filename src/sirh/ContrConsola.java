@@ -17,10 +17,15 @@ public class ContrConsola extends javax.swing.JFrame {
 
 
     public ContrConsola() throws MalformedURLException {
+     try{
         initComponents();
         setResizable(false);
         setDefaultCloseOperation(0);
         Iniciar();
+       }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
     
     private void Limpiar(JTable tabla){
@@ -30,6 +35,7 @@ public class ContrConsola extends javax.swing.JFrame {
     }
 
     private void Iniciar() throws MalformedURLException{
+        try{
         Limpiar(tablacontr);
         numtra.setText("0");
         nomtra.setText("");
@@ -94,6 +100,10 @@ public class ContrConsola extends javax.swing.JFrame {
         usuario.setText(Acceso.getClaveUsuario());
         txtNombre.setText(Acceso.getNombreUsuario());
         txtEmpresa.setText(Acceso.getEmpresaUsuario());
+         }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
     
     public static String fechaActual(){
