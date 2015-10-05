@@ -4,6 +4,9 @@ package sirh;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class cVPryprConsola extends javax.swing.JFrame {
@@ -17,10 +20,14 @@ public class cVPryprConsola extends javax.swing.JFrame {
     }
 
     private void Iniciar(){
-        txtPath.setText(cPrypr.getPathUsuario());
-        Image icon=new ImageIcon(cPrypr.getPathUsuario()).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        imgPath.setIcon(imagen);
+        try {
+            txtPath.setText(cPrypr.getPathUsuario());
+            Image icon=new javax.swing.ImageIcon(new URL(cPrypr.getPathUsuario())).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            imgPath.setIcon(imagen);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cVPryprConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**

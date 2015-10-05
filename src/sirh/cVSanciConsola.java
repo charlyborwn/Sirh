@@ -4,6 +4,9 @@ package sirh;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class cVSanciConsola extends javax.swing.JFrame {
@@ -17,10 +20,14 @@ public class cVSanciConsola extends javax.swing.JFrame {
     }
 
     private void Iniciar(){
-        txtPath.setText(cSanci.getPathUsuario());
-        Image icon=new ImageIcon(cSanci.getPathUsuario()).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        imgPath.setIcon(imagen);
+        try {
+            txtPath.setText(cSanci.getPathUsuario());
+            Image icon=new javax.swing.ImageIcon(new URL(cSanci.getPathUsuario())).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            imgPath.setIcon(imagen);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cVSanciConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**

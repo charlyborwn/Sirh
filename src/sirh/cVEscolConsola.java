@@ -4,6 +4,9 @@ package sirh;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class cVEscolConsola extends javax.swing.JFrame {
@@ -17,10 +20,14 @@ public class cVEscolConsola extends javax.swing.JFrame {
     }
 
     private void Iniciar(){
-        txtPath.setText(cEscol.getPathUsuario());
-        Image icon=new ImageIcon(cEscol.getPathUsuario()).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
-        Icon imagen=new ImageIcon(icon);
-        imgPath.setIcon(imagen);
+        try {
+            txtPath.setText(cEscol.getPathUsuario());
+            Image icon=new javax.swing.ImageIcon(new URL(cEscol.getPathUsuario())).getImage().getScaledInstance(imgPath.getWidth(), imgPath.getWidth(), Image.SCALE_DEFAULT);
+            Icon imagen=new ImageIcon(icon);
+            imgPath.setIcon(imagen);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(cVEscolConsola.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     /**
